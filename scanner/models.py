@@ -3,6 +3,11 @@ from django.db import models
 class Culture(models.Model):
     name = models.CharField(max_length=128, unique=True)
 
+    #save method added makes population easier in admin.py CultureAdmin class
+    def save(self, *args, **kwargs): #chp6 3 lines below
+        self.slug = slugify(self.name)
+        super(Category, self).save(*args, **kwargs)
+
     def __str__(self):
         return self.name
 
