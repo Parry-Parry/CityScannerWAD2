@@ -16,5 +16,5 @@ admin.site.register(Culture,CultureAdmin)
 admin.site.register(FoodAndDrinkPage, FoodandDrinkAdmin)
 admin.site.register(NightlifePage,NightLifeAdmin)
 admin.site.register(LifestylePage,LifeStyleAdmin)
-
-#admin.site.register(UserProfile) we need this as well in the models.py
+admin.site.register(UserProfile) #if we wish to include any other features we want to see about the users we can create UserProfileAdmin as well
+                                #right now all we see is the usernames.
