@@ -1,12 +1,20 @@
 from django.db import models
+from django.template.defaultfilters import slugify #ædded for slugs(not comitted yet)
 
 class Culture(models.Model):
     name = models.CharField(max_length=128, unique=True)
 
-    #save method added makes population easier in admin.py CultureAdmin class
-    def save(self, *args, **kwargs): #chp6 3 lines below
+
+    #the slug and save is needed for the admin.py.CultureAdmin thing needs these (not comitted these)
+    slug = models.SlugField(unique=True) #unique sluq field (not committed yet)
+
+     # save method added makes population easier in admin.py CultureAdmin class (not comitted I guess)
+    def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
         super(Category, self).save(*args, **kwargs)
+
+
+
 
     def __str__(self):
         return self.name
