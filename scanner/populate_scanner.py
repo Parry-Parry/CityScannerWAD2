@@ -9,7 +9,7 @@ from scanner.models import Culture, FoodAndDrinkPage,LifestylePage,NightlifePage
 
 
 
-
+def add
 def add_NightLifePage(cul, name, price_range,post_code):
     p = Page.objects.get_or_create(category=cul, title=name)[0]
     p.price_range = price_range
