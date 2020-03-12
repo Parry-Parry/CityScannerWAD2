@@ -6,11 +6,11 @@ from scanner.models import LifestylePage, FoodAndDrinkPage,NightlifePage,Culture
 class CultureAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug':('name',)}
 class FoodandDrinkAdmin(admin.ModelAdmin):
-    list_display = ('culture','name','price_range', 'post_code')
+    list_display = ('culture','name','price_range', 'post_code','street_num')
 class NightLifeAdmin(admin.ModelAdmin):
-    list_display = ('culture','name', 'price_range', 'post_code')
+    list_display = ('culture','name', 'price_range', 'post_code','street_num')
 class LifeStyleAdmin(admin.ModelAdmin):
-    list_display = ('culture','name', 'price_range', 'post_code')
+    list_display = ('culture','name', 'price_range', 'post_code','street_num')
 
 admin.site.register(Culture,CultureAdmin)
 admin.site.register(FoodAndDrinkPage, FoodandDrinkAdmin)
