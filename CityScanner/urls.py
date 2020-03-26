@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from scanner import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('add_nightlife_page/', views.add_nightlife_page, name='add_nightlife_page'),
 ]

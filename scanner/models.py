@@ -32,25 +32,25 @@ class FoodAndDrinkPage(models.Model):
     TIME_MAX=2400
     STREET_NUM_MAX_LENGTH =999
     POSTCODE_MAX_LENGTH =6
-    culture = models.ForeignKey(Culture)
+    culture = models.ForeignKey(Culture, on_delete =models.CASCADE)
     name = models.CharField(max_length=NAME_MAX_LENGTH)
     url = models.URLField()
     short_desc = models.CharField(max_length=SHORT_DESC_MAX_LENGTH)
     vegan_option = models.BooleanField()
-    price_range = models.IntegerField(min_value=0, max_value=100)
+    price_range = models.IntegerField()
 
     ## Assuming google maps api can take in this format
-    street_num = models.IntegerField(min_value=0,max_value=999)
-    post_code = models.StringField(max_length=6)
+    street_num = models.IntegerField()
+    post_code = models.CharField(max_length=POSTCODE_MAX_LENGTH)
 
     ## Assumes restaurants will be open for only one block period per day
-    mon_open = models.IntegerField(min_value=0, max_value=TIME_MAX)
-    tues_open = models.IntegerField(min_value=0, max_value=TIME_MAX)
-    wed_open = models.IntegerField(min_value=0, max_value=TIME_MAX)
-    thur_open = models.IntegerField(min_value=0, max_value=TIME_MAX)
-    fri_open = models.IntegerField(min_value=0, max_value=TIME_MAX)
-    sat_open = models.IntegerField(min_value=0, max_value=TIME_MAX)
-    sun_open = models.IntegerField(min_value=0, max_value=TIME_MAX)
+    mon_open = models.IntegerField()
+    tues_open = models.IntegerField()
+    wed_open = models.IntegerField()
+    thur_open = models.IntegerField()
+    fri_open = models.IntegerField()
+    sat_open = models.IntegerField()
+    sun_open = models.IntegerField()
 
 class NightlifePage(models.Model):
     NAME_MAX_LENGTH =128
@@ -58,24 +58,24 @@ class NightlifePage(models.Model):
     TIME_MAX=2400
     STREET_NUM_MAX_LENGTH =999
     POSTCODE_MAX_LENGTH =6
-    culture = models.ForeignKey(Culture)
+    culture = models.ForeignKey(Culture, on_delete =models.CASCADE)
     name = models.CharField(max_length=128)
     url = models.URLField()
     short_desc = models.CharField(max_length=200)
-    price_range = models.IntegerField(min_value=0,max_value=100)
+    price_range = models.IntegerField()
     liscenced = models.BooleanField()
 
     ## Assuming google maps api can take in this format
-    street_num = models.IntegerField(min_value=0,max_value=STREE)
-    post_code = models.StringField(max_length=6)
+    street_num = models.IntegerField()
+    post_code = models.CharField(max_length=6)
 
-    mon_open = models.IntegerField(min_value=0, max_value=TIME_MAX)
-    tues_open = models.IntegerField(min_value=0, max_value=TIME_MAX)
-    wed_open = models.IntegerField(min_value=0, max_value=TIME_MAX)
-    thur_open = models.IntegerField(min_value=0, max_value=TIME_MAX)
-    fri_open = models.IntegerField(min_value=0, max_value=TIME_MAX)
-    sat_open = models.IntegerField(min_value=0, max_value=TIME_MAX)
-    sun_open = models.IntegerField(min_value=0, max_value=TIME_MAX)
+    mon_open = models.IntegerField()
+    tues_open = models.IntegerField()
+    wed_open = models.IntegerField()
+    thur_open = models.IntegerField()
+    fri_open = models.IntegerField()
+    sat_open = models.IntegerField()
+    sun_open = models.IntegerField()
 
 
 
@@ -86,22 +86,22 @@ class LifestylePage(models.Model):
     STREET_NUM_MAX_LENGTH =999
     POSTCODE_MAX_LENGTH =6
 
-    culture = models.ForeignKey(Culture)
+    culture = models.ForeignKey(Culture, on_delete= models.CASCADE)
     name = models.CharField(max_length=NAME_MAX_LENGTH)
     business = models.CharField(max_length=50)
     url = models.URLField()
     short_desc = models.CharField(max_length=SHORT_DESC_MAX_LENGTH)
-    price_range = models.IntegerField(min_value=0,max_value=100)
+    price_range = models.IntegerField()
 
     ## Assuming google maps api can take in this format
-    street_num = models.IntegerField(min_value=0,max_value=STREET_NUM_MAX_LENGTH)
-    post_code = models.StringField(max_length=POSTCODE_MAX_LENGTH)
+    street_num = models.IntegerField()
+    post_code = models.CharField(max_length=POSTCODE_MAX_LENGTH)
 
     ## Assumes restaurants will be open for only one block period per day
-    mon_open = models.IntegerField(min_value=0, max_value=TIME_MAX)
-    tues_open = models.IntegerField(min_value=0, max_value=TIME_MAX)
-    wed_open = models.IntegerField(min_value=0, max_value=TIME_MAX)
-    thur_open = models.IntegerField(min_value=0, max_value=TIME_MAX)
-    fri_open = models.IntegerField(min_value=0, max_value=TIME_MAX)
-    sat_open = models.IntegerField(min_value=0, max_value=TIME_MAX)
-    sun_open = models.IntegerField(min_value=0, max_value=TIME_MAX)
+    mon_open = models.IntegerField()
+    tues_open = models.IntegerField()
+    wed_open = models.IntegerField()
+    thur_open = models.IntegerField()
+    fri_open = models.IntegerField()
+    sat_open = models.IntegerField()
+    sun_open = models.IntegerField()
