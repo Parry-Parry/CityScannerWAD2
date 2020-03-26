@@ -44,6 +44,10 @@ class NightlifePageForm(forms.ModelForm):
             cleaned_data['url'] = url
         return cleaned_data
 
+        class Meta:
+            model = NightlifePage
+
+
 class LifestylePageForm(forms.ModelForm):
 
     name = forms.CharField(max_length=LifestylePage.NAME_MAX_LENGTH,
@@ -85,6 +89,9 @@ class LifestylePageForm(forms.ModelForm):
             cleaned_data['url'] = url
         return cleaned_data
 
+    class Meta:
+        model = LifestylePage
+
 class FoodAndDrinkPageForm(forms.ModelForm):
 
     name = forms.CharField(max_length=FoodAndDrinkPage.NAME_MAX_LENGTH,
@@ -117,7 +124,7 @@ class FoodAndDrinkPageForm(forms.ModelForm):
     price_range = forms.IntegerField(min_value=0,max_value=100,
                     help_text="On a scale of 0-100 how pricey is this location")
     vegan_option = form.BooleanField(help_text="Does this restaurant have vegan options")
-    
+
     def clean(self):
         cleaned_data = self.cleaned_data
         url = cleaned_data.get('url')
@@ -125,3 +132,6 @@ class FoodAndDrinkPageForm(forms.ModelForm):
             url = f'http://{url}'
             cleaned_data['url'] = url
         return cleaned_data
+
+    class Meta:
+        model = FoodAndDrinkPage
