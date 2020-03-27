@@ -18,7 +18,7 @@ class Culture(models.Model):
      # save method added makes population easier in admin.py CultureAdmin class (not comitted I guess)
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
-        super(Category, self).save(*args, **kwargs)
+        super(Culture, self).save(*args, **kwargs)
 
 
 
@@ -43,21 +43,7 @@ class FoodAndDrinkPage(models.Model):
     street_num = models.IntegerField()
     post_code = models.CharField(max_length=POSTCODE_MAX_LENGTH)
 
-    ## Assumes restaurants will be open for only one block period per day
-    mon_open = models.IntegerField()
-    tues_open = models.IntegerField()
-    wed_open = models.IntegerField()
-    thur_open = models.IntegerField()
-    fri_open = models.IntegerField()
-    sat_open = models.IntegerField()
-    sun_open = models.IntegerField()
-    mon_close = models.IntegerField()
-    tues_close = models.IntegerField()
-    wed_close = models.IntegerField()
-    thur_close = models.IntegerField()
-    fri_close = models.IntegerField()
-    sat_close = models.IntegerField()
-    sun_close = models.IntegerField()
+
 
 class NightlifePage(models.Model):
     NAME_MAX_LENGTH =128
@@ -76,20 +62,7 @@ class NightlifePage(models.Model):
     street_num = models.IntegerField()
     post_code = models.CharField(max_length=6)
 
-    mon_open = models.IntegerField()
-    tues_open = models.IntegerField()
-    wed_open = models.IntegerField()
-    thur_open = models.IntegerField()
-    fri_open = models.IntegerField()
-    sat_open = models.IntegerField()
-    sun_open = models.IntegerField()
-    mon_close = models.IntegerField()
-    tues_close = models.IntegerField()
-    wed_close = models.IntegerField()
-    thur_close = models.IntegerField()
-    fri_close = models.IntegerField()
-    sat_close = models.IntegerField()
-    sun_close = models.IntegerField()
+
 
 
 class LifestylePage(models.Model):
@@ -109,19 +82,3 @@ class LifestylePage(models.Model):
     ## Assuming google maps api can take in this format
     street_num = models.IntegerField()
     post_code = models.CharField(max_length=POSTCODE_MAX_LENGTH)
-
-    ## Assumes restaurants will be open for only one block period per day
-    mon_open = models.IntegerField()
-    tues_open = models.IntegerField()
-    wed_open = models.IntegerField()
-    thur_open = models.IntegerField()
-    fri_open = models.IntegerField()
-    sat_open = models.IntegerField()
-    sun_open = models.IntegerField()
-    mon_close = models.IntegerField()
-    tues_close = models.IntegerField()
-    wed_close = models.IntegerField()
-    thur_close = models.IntegerField()
-    fri_close = models.IntegerField()
-    sat_close = models.IntegerField()
-    sun_close = models.IntegerField()
