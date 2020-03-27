@@ -51,6 +51,13 @@ class FoodAndDrinkPage(models.Model):
     fri_open = models.IntegerField()
     sat_open = models.IntegerField()
     sun_open = models.IntegerField()
+    mon_close = models.IntegerField()
+    tues_close = models.IntegerField()
+    wed_close = models.IntegerField()
+    thur_close = models.IntegerField()
+    fri_close = models.IntegerField()
+    sat_close = models.IntegerField()
+    sun_close = models.IntegerField()
 
 class NightlifePage(models.Model):
     NAME_MAX_LENGTH =128
@@ -76,7 +83,13 @@ class NightlifePage(models.Model):
     fri_open = models.IntegerField()
     sat_open = models.IntegerField()
     sun_open = models.IntegerField()
-
+    mon_close = models.IntegerField()
+    tues_close = models.IntegerField()
+    wed_close = models.IntegerField()
+    thur_close = models.IntegerField()
+    fri_close = models.IntegerField()
+    sat_close = models.IntegerField()
+    sun_close = models.IntegerField()
 
 
 class LifestylePage(models.Model):
@@ -105,3 +118,10 @@ class LifestylePage(models.Model):
     fri_open = models.IntegerField()
     sat_open = models.IntegerField()
     sun_open = models.IntegerField()
+    mon_close = models.IntegerField()
+    tues_close = models.IntegerField()
+    wed_close = models.IntegerField()
+    thur_close = models.IntegerField()
+    fri_close = models.IntegerField()
+    sat_close = models.IntegerField()
+    sun_close = models.IntegerField()

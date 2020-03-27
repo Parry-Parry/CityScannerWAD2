@@ -18,20 +18,35 @@ class NightlifePageForm(forms.ModelForm):
     post_code = forms.CharField(max_length=NightlifePage.POSTCODE_MAX_LENGTH,
                 help_text="Postcode")
 
-    mon_open = forms.IntegerField(min_value=0, max_value=NightlifePage.TIME_MAX,
-            help_text="Monday Opening Hours")
-    tues_open = forms.IntegerField(min_value=0, max_value=NightlifePage.TIME_MAX,
+    mon_open = forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
+            help_text="Monday Opening time")
+    mon_close= forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
+            help_text="Monday Closing time")
+            
+    tues_open = forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
             help_text="Tuesday Opening Hours")
-    wed_open = forms.IntegerField(min_value=0, max_value=NightlifePage.TIME_MAX,
+    tues_close= forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
+            help_text="Tuesday Closing time")
+    wed_open = forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
             help_text="Wednesday Opening Hours")
-    thur_open = forms.IntegerField(min_value=0, max_value=NightlifePage.TIME_MAX,
+    wed_close= forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
+            help_text="Wednesday Closing time")
+    thur_open = forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
             help_text="Thursday Opening Hours")
-    fri_open = forms.IntegerField(min_value=0, max_value=NightlifePage.TIME_MAX,
+    thur_close= forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
+            help_text="Thursday Closing time")
+    fri_open = forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
             help_text="Friday Opening Hours")
-    sat_open = forms.IntegerField(min_value=0, max_value=NightlifePage.TIME_MAX,
+    fri_close= forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
+            help_text="Friday Closing time")
+    sat_open = forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
             help_text="Saturday Opening Hours")
-    sun_open = forms.IntegerField(min_value=0, max_value=NightlifePage.TIME_MAX,
+    sat_close= forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
+            help_text="Saturday Closing time")
+    sun_open = forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
             help_text="Sunday Opening Hours")
+    sun_close= forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
+            help_text="Sunday Closing time")
 
     short_desc = forms.CharField(max_length=NightlifePage.SHORT_DESC_MAX_LENGTH,
                 help_text="Provide a short description")
@@ -62,20 +77,34 @@ class LifestylePageForm(forms.ModelForm):
     post_code = forms.CharField(max_length=LifestylePage.POSTCODE_MAX_LENGTH,
                 help_text="Postcode")
 
-    mon_open = forms.IntegerField(min_value=0, max_value=LifestylePage.TIME_MAX,
-            help_text="Monday Opening Hours")
-    tues_open = forms.IntegerField(min_value=0, max_value=LifestylePage.TIME_MAX,
+    mon_open = forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
+            help_text="Monday Opening time")
+    mon_close= forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
+            help_text="Monday Closing time")
+    tues_open = forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
             help_text="Tuesday Opening Hours")
-    wed_open = forms.IntegerField(min_value=0, max_value=LifestylePage.TIME_MAX,
+    tues_close= forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
+            help_text="Tuesday Closing time")
+    wed_open = forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
             help_text="Wednesday Opening Hours")
-    thur_open = forms.IntegerField(min_value=0, max_value=LifestylePage.TIME_MAX,
+    wed_close= forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
+            help_text="Wednesday Closing time")
+    thur_open = forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
             help_text="Thursday Opening Hours")
-    fri_open = forms.IntegerField(min_value=0, max_value=LifestylePage.TIME_MAX,
+    thur_close= forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
+            help_text="Thursday Closing time")
+    fri_open = forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
             help_text="Friday Opening Hours")
-    sat_open = forms.IntegerField(min_value=0, max_value=LifestylePage.TIME_MAX,
+    fri_close= forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
+            help_text="Friday Closing time")
+    sat_open = forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
             help_text="Saturday Opening Hours")
-    sun_open = forms.IntegerField(min_value=0, max_value=LifestylePage.TIME_MAX,
+    sat_close= forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
+            help_text="Saturday Closing time")
+    sun_open = forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
             help_text="Sunday Opening Hours")
+    sun_close= forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
+            help_text="Sunday Closing time")
 
     short_desc = forms.CharField(max_length=LifestylePage.SHORT_DESC_MAX_LENGTH,
                 help_text="Provide a short description")
@@ -107,19 +136,33 @@ class FoodAndDrinkPageForm(forms.ModelForm):
                 help_text="Postcode")
 
     mon_open = forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
-            help_text="Monday Opening Hours")
+            help_text="Monday Opening time")
+    mon_close= forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
+            help_text="Monday Closing time")
     tues_open = forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
             help_text="Tuesday Opening Hours")
+    tues_close= forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
+            help_text="Tuesday Closing time")
     wed_open = forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
             help_text="Wednesday Opening Hours")
+    wed_close= forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
+            help_text="Wednesday Closing time")
     thur_open = forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
             help_text="Thursday Opening Hours")
+    thur_close= forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
+            help_text="Thursday Closing time")
     fri_open = forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
             help_text="Friday Opening Hours")
+    fri_close= forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
+            help_text="Friday Closing time")
     sat_open = forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
             help_text="Saturday Opening Hours")
+    sat_close= forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
+            help_text="Saturday Closing time")
     sun_open = forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
             help_text="Sunday Opening Hours")
+    sun_close= forms.IntegerField(min_value=0, max_value=FoodAndDrinkPage.TIME_MAX,
+            help_text="Sunday Closing time")
 
     short_desc = forms.CharField(max_length=FoodAndDrinkPage.SHORT_DESC_MAX_LENGTH,
                 help_text="Provide a short description")
