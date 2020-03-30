@@ -26,5 +26,7 @@ urlpatterns = [
     path('add_lifestyle_page/', views.add_lifestyle_page, name='add_lifestyle_page'),
     path('add_foodanddrink_page/', views.add_foodanddrink_page, name='add_foodanddrink_page'),
     path('register/', views.register, name='register'),
+    path('login/', views.user_login, name='login'),
+    path('',views.homepage, name='home'),
 
 ]

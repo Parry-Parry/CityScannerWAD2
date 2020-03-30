@@ -1,8 +1,17 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse, redirect
 from scanner.forms import NightlifePageForm, LifestylePageForm, FoodAndDrinkPageForm, UserForm, UserProfileForm
 from scanner.models import NightlifePage, LifestylePage, FoodAndDrinkPage, UserProfile
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
+from django.http import HttpResponse
+
+
 
 # Create your views here.
+def homepage(request):
+    return render(request, 'scanner/homepage.html')
+
+@login_required
 def add_nightlife_page(request):
     form = NightlifePageForm()
 
@@ -15,6 +24,7 @@ def add_nightlife_page(request):
             print(form.errors)
     return render(request, 'scanner/add_nightlife_page.html', {'form':form})
 
+@login_required
 def add_lifestyle_page(request):
     form = LifestylePageForm()
 
@@ -27,6 +37,7 @@ def add_lifestyle_page(request):
             print(form.errors)
     return render(request, 'scanner/add_lifestyle_page.html', {'form':form})
 
+@login_required
 def add_foodanddrink_page(request):
     form = FoodAndDrinkPageForm()
 
@@ -67,3 +78,17 @@ def register(request):
                     context = {'user_form': user_form,
                                 'profile_form': profile_form,
                                 'registered': registered})
+
+def user_login(request):
+    if request.method=='POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username=username, password=password)
+        if user:
+            login(request, user)
+            return redirect(reverse('home'))
+        else:
+            print(f"Invalid login details: {username}, {password}")
+            return HttpResponse("Invalid login details supplied")
+    else:
+        return render(request, 'scanner/login.html')
