@@ -2,8 +2,8 @@
         CITYSCANNER BASE HTML
 ===============================-->
 <!DOCTYPE html>
-{% loadscanner_template_tags %}
-{% load staticfiles %}
+<!--{% loadscanner_template_tags %}
+{% load staticfiles %}-->
 <html lang="en">
 
 <head>
@@ -72,17 +72,26 @@
 </header><!-- End Header -->
 
 <!-- ======= CONTENT ======= -->
-<section id="hero" class="d-flex align-items-center">
-    <div id="filterArea" class="container border">
-        {% block sidebar_block %}
-        {% endblock %}
+ <div id="heroCarousel" class="container carousel carousel-fade" data-ride="carousel">
+
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+          <div id="filterArea" class="container border">
+            {% block sidebar_block %}
+            {% endblock %}
     </div>
+        <div class="carousel-container">
+           {% block body_block %}
+            {% endblock %}
+        </div>
+<section id="hero" class="d-flex align-items-center">
+
     <div id="content" class="container border">
-        {% block body_block %}
-        {% endblock %}
+
     </div>
 </section><!-- End CONTENT -->
-
+{% block selection_block %}
+{% endblock %}
 
 <!-- ======= Footer ======= -->
 <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">

@@ -1,3 +1,48 @@
-<!DOCTYPE html>
+{% extends 'scanner/base.html' %}
+{% load staticfiles %}
+{% block title_block %}
+Get Started
+{% endblock %}
+{% block body_block %}
+          <h2 class="animated fadeInDown">Get Started with <span>CityScanner</span></h2>
+          <p class="animated fadeInUp">Scroll down to see what you've been missing in your city</p>
+          <a href="\Search"><button type="button" class="btn btn-outline-light">Or Search Right Now!</button></a>
+{% endblock %}
+{% block selection_block %}
+  <main id="main">
 
-<h1>THIS IS THE HOMEPAGE</h1>
+    <!-- ======= Services Section ======= -->
+    <section class="services">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mx-auto" data-aos="fade-up">
+            <div class="icon-box icon-box-blue">
+              <div class="icon"><i class="bx bx-file"></i></div>
+              <h4 class="title"><a href="">Type in a country to get started!</a></h4>
+              <form class="form-inline">
+                <div class="form-group mb-2">
+                  <label for="inputPassword2" class="sr-only">Type Here!</label>
+                  <input type="country" class="form-control" id="inputPassword2" placeholder="e.g Greece">
+                </div>
+                <button type="submit" class="btn btn-dark mb-2">Search</button>
+              </form>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items mx-auto" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon-box icon-box-blue">
+              <div class="icon"><i class="bx bx-location-plus"></i></div>
+              <h4 class="title"><a href="">Add a new Location</a></h4>
+              <p class="description">You must be signed in to do this</p>
+              <a href="\Register"><button type="button" class="btn btn-outline-dark">Register</button></a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+  </main><!-- End #main -->
+{% endblock %}
