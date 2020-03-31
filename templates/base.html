@@ -57,7 +57,11 @@
                 <li><a href="\Search">Main Search</a></li>
                 <li><a href="#footer">Contact Us</a></li>
                 <li><a href="#footer">Our Project</a></li>
-                <li><a href="\LogIn">Log-In</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="\User">Your Page</a></li>
+                {% else %}
+                <li><a href="\LogIn">Log In</a></li>
+                {% endif %}
 
             </ul>
         </nav><!-- .nav-menu -->
@@ -89,7 +93,11 @@
                     <ul>
                         <li><i class="bx bx-chevron-right"></i> <a href="\index">Home</a></li>
                         <li><i class="bx bx-chevron-right"></i> <a href="\Search">Main Search</a></li>
+                        {% if user.is_authenticated %}
                         <li><i class="bx bx-chevron-right"></i> <a href="\User">Your Page</a></li>
+                        {% else %}
+                        <li><i class="bx bx-chevron-right"></i> <a href="\LogIn">Log In</a></li>
+                        {% endif %}
                     </ul>
                 </div>
 
