@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<h1>Profile</h1>
+<div>
+
+  <p>Username: {{ user }}</p>
+  <p>Email: {{ user.email }}</p>
+  <p><img src="{{ user.userprofile.picture.url  }}" width=240></p>
+
+
+</div>
+<div>
+  <a href="{% url  'scanner:add_lifestyle_page' %}">Add Lifstyle Page</a>
+  <a href="{% url  'scanner:add_nightlife_page' %}">Add Nightlife Page</a>
+  <a href="{% url  'scanner:add_foodanddrink_page' %}">Add Food and Drink Page</a>
+
+</div>

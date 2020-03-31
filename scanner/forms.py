@@ -1,6 +1,6 @@
 from django import forms
 from scanner.models import Culture, NightlifePage, LifestylePage, FoodAndDrinkPage
-from django.contrib.auth.forms import User
+from django.contrib.auth.models import User
 from scanner.models import UserProfile
 
 class NightlifePageForm(forms.ModelForm):
@@ -102,3 +102,16 @@ class FoodAndDrinkPageForm(forms.ModelForm):
     class Meta:
         model = FoodAndDrinkPage
         fields='__all__'
+
+
+class UserForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput())
+
+    class Meta:
+        model = User
+        fields=('username', 'email', 'password')
+
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        exclude = ('user',)
