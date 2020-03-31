@@ -1,13 +1,16 @@
 <!--{% load staticfiles %}
-{% load CS_template_tags %}-->
+-->
 <!DOCTYPE html>
+{% loadscanner_template_tags %}
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>CityScanner</title>
+    <title>CityScanner {% block title_block %}
+
+        {% endblock %}</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -45,7 +48,6 @@
     <div class="container">
 
         <div class="logo float-left">
-            <!--<h1 class="text-light"><a href="index.html"><span>Moderna</span></a></h1>-->
             <a href="\CityScanner"><img src="assets/static/logo.png" alt="logo" class="img-fluid"></a>
         </div>
 
