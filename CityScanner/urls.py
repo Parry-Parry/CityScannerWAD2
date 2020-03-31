@@ -15,18 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from scanner import views
 
 app_name = 'scanner'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('add_nightlife_page/', views.add_nightlife_page, name='add_nightlife_page'),
-    path('add_lifestyle_page/', views.add_lifestyle_page, name='add_lifestyle_page'),
-    path('add_foodanddrink_page/', views.add_foodanddrink_page, name='add_foodanddrink_page'),
-    path('register/', views.register, name='register'),
-    path('login/', views.user_login, name='login'),
+    path('scanner/', include('scanner.urls')),
     path('',views.homepage, name='home'),
 
 ]
