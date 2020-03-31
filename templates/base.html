@@ -1,7 +1,7 @@
-<!--{% load staticfiles %}
--->
+
 <!DOCTYPE html>
 {% loadscanner_template_tags %}
+{% load staticfiles %}
 <html lang="en">
 
 <head>
@@ -68,12 +68,12 @@
 <!-- ======= CONTENT ======= -->
 <section id="hero" class="d-flex align-items-center">
     <div id="filterArea" class="container border">
-        <!--{% block sidebar_block %}
-        {% endblock %}-->
+        {% block sidebar_block %}
+        {% endblock %}
     </div>
     <div id="content" class="container border">
-        <!--{% block body_block %}
-        {% endblock %}-->
+        {% block body_block %}
+        {% endblock %}
     </div>
 </section><!-- End CONTENT -->
 
