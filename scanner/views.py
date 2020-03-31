@@ -85,10 +85,22 @@ def user_login(request):
         password = request.POST.get('password')
         user = authenticate(username=username, password=password)
         if user:
-            login(request, user)
-            return redirect(reverse('home'))
+            if user.is_active:
+                login(request, user)
+                return redirect(reverse('scanner:profile'))
+            else:
+                return HttpResponse("Your account is disabled.")
         else:
             print(f"Invalid login details: {username}, {password}")
             return HttpResponse("Invalid login details supplied")
     else:
         return render(request, 'scanner/login.html')
+
+@login_required
+def show_profile(request):
+    context_dict={'user': request.user}
+    return render(request, 'scanner/show_profile.html', context_dict)
+
+def user_logout(request):
+    logout(request)
+    return redirect(reverse('home'))

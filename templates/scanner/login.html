@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <h1>Login to CityScanner</h1>
-<form id="login_form" method="post" action="{% url 'home' %}">
+<form id="login_form" method="post" action="{% url 'scanner:login' %}">
   {% csrf_token %}
   Username: <input type="text" name="username" value="" size="50" />
   <br />
