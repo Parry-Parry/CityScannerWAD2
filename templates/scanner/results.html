@@ -1,0 +1,13 @@
+<!DOCTYPE>
+
+<h1>Results</h1>
+
+{% if culture %}
+  {% if pages %}
+  <ul>
+    {% for page in pages %}
+      <li>{{ page.name }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+{% endif %}

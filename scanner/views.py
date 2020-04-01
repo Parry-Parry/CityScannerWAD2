@@ -1,6 +1,6 @@
 from django.shortcuts import render, reverse, redirect
 from scanner.forms import NightlifePageForm, LifestylePageForm, FoodAndDrinkPageForm, UserForm, UserProfileForm
-from scanner.models import NightlifePage, LifestylePage, FoodAndDrinkPage, UserProfile
+from scanner.models import NightlifePage, LifestylePage, FoodAndDrinkPage, UserProfile, Culture
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
@@ -9,7 +9,62 @@ from django.http import HttpResponse
 
 # Create your views here.
 def homepage(request):
+
     return render(request, 'scanner/homepage.html')
+
+def choose_type(request,culture_name_slug):
+    context_dict={}
+    try:
+        culture = Culture.objects.get(slug=culture_name_slug)
+        context_dict['culture']= culture
+    except Culture.DoesNotExist:
+        context_dict['culture'] = None
+    print(culture.slug)
+    return render(request, 'scanner/choose_type.html', context=context_dict)
+
+def show_nightlife(request,culture_name_slug):
+    context_dict={}
+
+    try:
+        culture = Culture.objects.get(slug=culture_name_slug)
+        pages = NightlifePage.objects.filter(culture=culture)
+        context_dict['pages'] = pages
+        context_dict['culture']  = culture
+
+    except Culture.DoesNotExist:
+        context_dict['culture'] = None
+        context_dict['pages'] = None
+
+    return render(request, 'scanner/results.html', context=context_dict)
+def show_lifestyle(request,culture_name_slug):
+    context_dict={}
+
+    try:
+        culture = Culture.objects.get(slug=culture_name_slug)
+        pages = LifestylePage.objects.filter(culture=culture)
+        context_dict['pages'] = pages
+        context_dict['culture']  = culture
+
+    except Culture.DoesNotExist:
+        context_dict['culture'] = None
+        context_dict['pages'] = None
+
+    return render(request, 'scanner/results.html', context=context_dict)
+
+def show_foodanddrink(request,culture_name_slug):
+    context_dict={}
+
+    try:
+        culture = Culture.objects.get(slug=culture_name_slug)
+        pages = FoodAndDrinkPage.objects.filter(culture=culture)
+        context_dict['pages'] = pages
+        context_dict['culture']  = culture
+
+    except Culture.DoesNotExist:
+        context_dict['culture'] = None
+        context_dict['pages'] = None
+
+    return render(request, 'scanner/results.html', context=context_dict)
 
 @login_required
 def add_nightlife_page(request):
@@ -22,6 +77,7 @@ def add_nightlife_page(request):
             return redirect('/admin/')
         else:
             print(form.errors)
+
     return render(request, 'scanner/add_nightlife_page.html', {'form':form})
 
 @login_required

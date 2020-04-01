@@ -27,6 +27,7 @@ class Culture(models.Model):
         return self.name
 
 class FoodAndDrinkPage(models.Model):
+    type='foodanddrink'
     NAME_MAX_LENGTH =128
     SHORT_DESC_MAX_LENGTH =200
     TIME_MAX=2400
@@ -46,6 +47,7 @@ class FoodAndDrinkPage(models.Model):
 
 
 class NightlifePage(models.Model):
+    type='nightlife'
     NAME_MAX_LENGTH =128
     SHORT_DESC_MAX_LENGTH =200
     TIME_MAX=2400
@@ -66,6 +68,7 @@ class NightlifePage(models.Model):
 
 
 class LifestylePage(models.Model):
+    type='lifestyle'
     NAME_MAX_LENGTH =128
     SHORT_DESC_MAX_LENGTH =200
     TIME_MAX=2400

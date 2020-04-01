@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+<h1>What Type Of Location?</h1>
+{% if culture %}
+  <div>
+  <a href="{% url 'scanner:show_nightlife' culture.slug %}">Nightlife</a>
+  </div>
+  <div>
+  <a href="{% url 'scanner:show_lifestyle' culture.slug %}">Lifestyle</a>
+  </div>
+  <div>
+  <a href="{% url 'scanner:show_foodanddrink' culture.slug %}">Food and Drink</a>
+  </div>
+{% else %}
+No such culture
+{% endif %}
