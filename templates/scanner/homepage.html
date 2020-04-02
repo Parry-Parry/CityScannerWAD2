@@ -33,17 +33,14 @@ Get Started
             <div class="icon-box icon-box-blue">
               <div class="icon"><i class="bx bx-file"></i></div>
               <h4 class="title"><a href="">Type in a culture to get started!</a></h4>
-              <form class="form-inline">
+              <form class="form-inline" method='post' action="{% url 'home' %}">
+                {% csrf_token %}
                 <div class="form-group mb-2">
-<<<<<<< Updated upstream
-                  <label for="culture" class="sr-only">Type Here!</label>
-                  <input type="text" class="form-control" name="culturebox" id="culture" placeholder="e.g Greece">
-=======
-                  <label for="inputPassword2" class="sr-only">Type Here!</label>
-                  <input type="text" class="form-control" id="inputPassword2" placeholder="e.g Greek">
->>>>>>> Stashed changes
+                <label for="culture" class="sr-only">Type Here!</label>
+
+                  <input type="text" class="form-control" name="culturebox" id="culture" placeholder="e.g Greek">
                 </div>
-                <button type="submit" class="btn btn-dark mb-2"><a href="{% url 'scanner:choose_type' %}">Search</a></button>
+                <button type="submit" class="btn btn-dark mb-2">Search</button>
               </form>
             </div>
           </div>
