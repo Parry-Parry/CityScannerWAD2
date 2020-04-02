@@ -6,44 +6,50 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 
 
-
 # Create your views here.
 def homepage(request):
-
     return render(request, 'scanner/homepage.html')
 
-def choose_type(request,culture_name_slug):
-    context_dict={}
+
+def locationchoice(request):
+    return render(request, 'scanner/locationchoice.html')
+
+
+def choose_type(request, culture_name_slug):
+    context_dict = {}
     try:
         culture = Culture.objects.get(slug=culture_name_slug)
-        context_dict['culture']= culture
+        context_dict['culture'] = culture
     except Culture.DoesNotExist:
         context_dict['culture'] = None
     print(culture.slug)
     return render(request, 'scanner/choose_type.html', context=context_dict)
 
-def show_nightlife(request,culture_name_slug):
-    context_dict={}
+
+def show_nightlife(request, culture_name_slug):
+    context_dict = {}
 
     try:
         culture = Culture.objects.get(slug=culture_name_slug)
         pages = NightlifePage.objects.filter(culture=culture)
         context_dict['pages'] = pages
-        context_dict['culture']  = culture
+        context_dict['culture'] = culture
 
     except Culture.DoesNotExist:
         context_dict['culture'] = None
         context_dict['pages'] = None
 
     return render(request, 'scanner/results.html', context=context_dict)
-def show_lifestyle(request,culture_name_slug):
-    context_dict={}
+
+
+def show_lifestyle(request, culture_name_slug):
+    context_dict = {}
 
     try:
         culture = Culture.objects.get(slug=culture_name_slug)
         pages = LifestylePage.objects.filter(culture=culture)
         context_dict['pages'] = pages
-        context_dict['culture']  = culture
+        context_dict['culture'] = culture
 
     except Culture.DoesNotExist:
         context_dict['culture'] = None
@@ -51,20 +57,22 @@ def show_lifestyle(request,culture_name_slug):
 
     return render(request, 'scanner/results.html', context=context_dict)
 
-def show_foodanddrink(request,culture_name_slug):
-    context_dict={}
+
+def show_foodanddrink(request, culture_name_slug):
+    context_dict = {}
 
     try:
         culture = Culture.objects.get(slug=culture_name_slug)
         pages = FoodAndDrinkPage.objects.filter(culture=culture)
         context_dict['pages'] = pages
-        context_dict['culture']  = culture
+        context_dict['culture'] = culture
 
     except Culture.DoesNotExist:
         context_dict['culture'] = None
         context_dict['pages'] = None
 
     return render(request, 'scanner/results.html', context=context_dict)
+
 
 @login_required
 def add_nightlife_page(request):
@@ -78,7 +86,8 @@ def add_nightlife_page(request):
         else:
             print(form.errors)
 
-    return render(request, 'scanner/add_nightlife_page.html', {'form':form})
+    return render(request, 'scanner/add_nightlife_page.html', {'form': form})
+
 
 @login_required
 def add_lifestyle_page(request):
@@ -91,7 +100,8 @@ def add_lifestyle_page(request):
             return redirect('/admin/')
         else:
             print(form.errors)
-    return render(request, 'scanner/add_lifestyle_page.html', {'form':form})
+    return render(request, 'scanner/add_lifestyle_page.html', {'form': form})
+
 
 @login_required
 def add_foodanddrink_page(request):
@@ -104,10 +114,11 @@ def add_foodanddrink_page(request):
             return redirect('/admin/')
         else:
             print(form.errors)
-    return render(request, 'scanner/add_foodanddrink_page.html', {'form':form})
+    return render(request, 'scanner/add_foodanddrink_page.html', {'form': form})
+
 
 def register(request):
-    registered=False
+    registered = False
     if request.method == 'POST':
         user_form = UserForm(request.POST)
         profile_form = UserProfileForm(request.POST)
@@ -115,8 +126,8 @@ def register(request):
             user = user_form.save()
             user.set_password(user.password)
             user.save()
-            profile= profile_form.save(commit=False)
-            profile.user =user
+            profile = profile_form.save(commit=False)
+            profile.user = user
 
             if 'picture' in request.FILES:
                 profile.picture = request.FILES['picture']
@@ -130,13 +141,14 @@ def register(request):
         profile_form = UserProfileForm()
 
     return render(request,
-                    'scanner/register.html',
-                    context = {'user_form': user_form,
-                                'profile_form': profile_form,
-                                'registered': registered})
+                  'scanner/register.html',
+                  context={'user_form': user_form,
+                           'profile_form': profile_form,
+                           'registered': registered})
+
 
 def user_login(request):
-    if request.method=='POST':
+    if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
         user = authenticate(username=username, password=password)
@@ -152,10 +164,12 @@ def user_login(request):
     else:
         return render(request, 'scanner/login.html')
 
+
 @login_required
 def show_profile(request):
-    context_dict={'user': request.user}
+    context_dict = {'user': request.user}
     return render(request, 'scanner/show_profile.html', context_dict)
+
 
 def user_logout(request):
     logout(request)

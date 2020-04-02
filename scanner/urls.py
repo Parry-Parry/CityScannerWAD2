@@ -6,6 +6,7 @@ from scanner import views
 app_name = 'scanner'
 
 urlpatterns = [
+  path('locationchoice/', views.locationchoice, name='locationchoice'),
   path('add_nightlife_page/', views.add_nightlife_page, name='add_nightlife_page'),
   path('add_lifestyle_page/', views.add_lifestyle_page, name='add_lifestyle_page'),
   path('add_foodanddrink_page/', views.add_foodanddrink_page, name='add_foodanddrink_page'),
