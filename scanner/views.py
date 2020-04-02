@@ -4,24 +4,33 @@ from scanner.models import NightlifePage, LifestylePage, FoodAndDrinkPage, UserP
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
+from django.template.defaultfilters import slugify
 
 
 # Create your views here.
 def homepage(request):
     return render(request, 'scanner/homepage.html')
-
-
 def search(request):
     return render(request, 'scanner/search.html')
 
 
 def locationchoice(request):
+    if request.method=='POST':
+        search = request.POST.get('culture_search')
+        slug_search = slugify(search)
+        return redirect(reverse('scanner:choose_type', arg=[slug_search]))
+
     return render(request, 'scanner/locationchoice.html')
 
 
-def choose_type(request):
+def choose_type(request, culture_name_slug):
     context_dict = {}
-    context_dict['culture'] = request.GET['culturebox']
+    try:
+        culture = Culture.objects.get(slug=culture_name_slug)
+        context_dict['culture'] = culture
+    except Culture.DoesNotExist:
+        context_dict['culture'] = None
+
     return render(request, 'scanner/choose_type.html', context=context_dict)
 
 
