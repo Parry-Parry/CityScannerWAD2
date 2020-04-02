@@ -2,7 +2,10 @@
 <h1>Main Search</h1>
 
 <div>
-  <form method="get" method='post' action="{% url 'scanner:search' %}">
-    <input id="culture_search" type="text" name="culture_search">
-    <input type="search" value="search">
+  <form method='post' action="{% url 'home' %}">
+    {% csrf_token %}
+    <label for="culture" class="sr-only">Type Here!</label>
+      <input type="text" class="form-control" name="culturebox" id="culture" placeholder="e.g Greek">
+    </div>
+    <button type="submit" class="btn btn-dark mb-2">Search</button>
   </form>
