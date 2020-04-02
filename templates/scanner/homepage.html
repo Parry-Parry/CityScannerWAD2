@@ -13,7 +13,7 @@ Get Started
 
                 <h2 class="animated fadeInDown">Get Started with <span>CityScanner</span></h2>
                 <p class="animated fadeInUp">Scroll down to see what you've been missing in your city</p>
-                 <a href="\Search"><button type="button" class="btn btn-outline-light">Or Search Right Now!</button></a>
+                 <a href="{% url 'scanner:search' %}"><button type="button" class="btn btn-outline-light">Or Search Right Now!</button></a>
 
         </div>
 {% endblock %}
@@ -57,5 +57,5 @@ Get Started
     </section><!-- End Services Section -->
 
   </main><!-- End #main -->
-  
+
 {% endblock %}

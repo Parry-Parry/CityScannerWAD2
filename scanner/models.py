@@ -10,78 +10,70 @@ class UserProfile(models.Model): # This line is required. Links UserProfile to a
 
 class Culture(models.Model):
     name = models.CharField(max_length=128, unique=True)
+    slug = models.SlugField(unique=True)
 
-
-    #the slug and save is needed for the admin.py.CultureAdmin thing needs these (not comitted these)
-    slug = models.SlugField(unique=True) #unique sluq field (not committed yet)
-
-     # save method added makes population easier in admin.py CultureAdmin class (not comitted I guess)
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
         super(Culture, self).save(*args, **kwargs)
-
-
-
 
     def __str__(self):
         return self.name
 
 class FoodAndDrinkPage(models.Model):
-    type='foodanddrink'
+
     NAME_MAX_LENGTH =128
     SHORT_DESC_MAX_LENGTH =200
     TIME_MAX=2400
-    STREET_NUM_MAX_LENGTH =999
+    STREET_NUM_MAX_LENGTH =9999
     POSTCODE_MAX_LENGTH =6
-    culture = models.ForeignKey(Culture, on_delete =models.CASCADE)
-    name = models.CharField(max_length=NAME_MAX_LENGTH)
-    url = models.URLField()
+    culture = models.ForeignKey(Culture, on_delete =models.CASCADE, null=True) #default=Culture.objects.get_or_create(name='None')[0])
+    name = models.CharField(max_length=NAME_MAX_LENGTH, unique=True)
+    url = models.URLField(blank=True)
     short_desc = models.CharField(max_length=SHORT_DESC_MAX_LENGTH)
-    vegan_option = models.BooleanField()
-    price_range = models.IntegerField()
+    vegan_option = models.BooleanField(default=False)
+    price_range = models.IntegerField(default=50)
 
     ## Assuming google maps api can take in this format
-    street_num = models.IntegerField()
-    post_code = models.CharField(max_length=POSTCODE_MAX_LENGTH)
+    street_num = models.IntegerField(default=0)
+    post_code = models.CharField(max_length=POSTCODE_MAX_LENGTH, default='G00aa')
 
 
 
 class NightlifePage(models.Model):
-    type='nightlife'
     NAME_MAX_LENGTH =128
     SHORT_DESC_MAX_LENGTH =200
     TIME_MAX=2400
-    STREET_NUM_MAX_LENGTH =999
+    STREET_NUM_MAX_LENGTH =9999
     POSTCODE_MAX_LENGTH =6
-    culture = models.ForeignKey(Culture, on_delete =models.CASCADE)
-    name = models.CharField(max_length=128)
-    url = models.URLField()
-    short_desc = models.CharField(max_length=200)
-    price_range = models.IntegerField()
-    liscenced = models.BooleanField()
+    culture = models.ForeignKey(Culture, on_delete =models.CASCADE, null=True)# default=Culture.objects.get_or_create(name='None')[0])
+    name = models.CharField(max_length=128, unique=True)
+    url = models.URLField(blank=True)
+    short_desc = models.CharField(max_length=200, null=True)
+    price_range = models.IntegerField(default=50)
+    liscenced = models.BooleanField(default=False)
+    business = models.CharField(max_length=50, null=True)
 
     ## Assuming google maps api can take in this format
-    street_num = models.IntegerField()
-    post_code = models.CharField(max_length=6)
+    street_num = models.IntegerField(default=0)
+    post_code = models.CharField(max_length=6, default='G00aa')
 
 
 
 
 class LifestylePage(models.Model):
-    type='lifestyle'
     NAME_MAX_LENGTH =128
     SHORT_DESC_MAX_LENGTH =200
     TIME_MAX=2400
-    STREET_NUM_MAX_LENGTH =999
+    STREET_NUM_MAX_LENGTH =9999
     POSTCODE_MAX_LENGTH =6
 
-    culture = models.ForeignKey(Culture, on_delete= models.CASCADE)
-    name = models.CharField(max_length=NAME_MAX_LENGTH)
-    business = models.CharField(max_length=50)
-    url = models.URLField()
+    culture = models.ForeignKey(Culture, on_delete= models.CASCADE, null=True)#default=Culture.objects.get_or_create(name='None')[0])
+    name = models.CharField(max_length=NAME_MAX_LENGTH, unique=True)
+    business = models.CharField(max_length=50, null=True)
+    url = models.URLField(blank=True)
     short_desc = models.CharField(max_length=SHORT_DESC_MAX_LENGTH)
-    price_range = models.IntegerField()
+    price_range = models.IntegerField(default=50)
 
     ## Assuming google maps api can take in this format
-    street_num = models.IntegerField()
-    post_code = models.CharField(max_length=POSTCODE_MAX_LENGTH)
+    street_num = models.IntegerField(default=0)
+    post_code = models.CharField(max_length=POSTCODE_MAX_LENGTH,default='G00aa')

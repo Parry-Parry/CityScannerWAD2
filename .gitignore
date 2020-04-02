@@ -4,7 +4,6 @@ thumbs.db
 *.key
 tango_with_django_project/__pycache__/*
 db.sqlite3
-db.sqlite3
 .idea/CityScannerWAD2.iml
 .idea/CityScannerWAD2.iml
 .idea/CityScannerWAD2.iml
