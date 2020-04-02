@@ -1,16 +1,71 @@
 <!DOCTYPE html>
+{% extends 'scanner/base.html' %}
+{% load static %}
+{% block title_block %}
+Location Types!
+{% endblock %}
 
-<h1>What Type Of Location?</h1>
-{% if culture %}
-  <div>
-  <a href="{% url 'scanner:show_nightlife' culture.slug %}">Nightlife</a>
-  </div>
-  <div>
-  <a href="{% url 'scanner:show_lifestyle' culture.slug %}">Lifestyle</a>
-  </div>
-  <div>
-  <a href="{% url 'scanner:show_foodanddrink' culture.slug %}">Food and Drink</a>
-  </div>
-{% else %}
-No such culture
-{% endif %}
+   {% block body_block %}
+      <div class="carousel-item active">
+          <!--<div id="filterArea" class="container border">
+
+          </div>-->
+        <div class="carousel-container">
+
+                <h2 class="animated fadeInDown">Now choose a type of location!</h2>
+                <p class="animated fadeInUp">Each location type can by filtered by nationality!</p>
+                 <a href="#main"><button type="button" class="btn btn-outline-light">Get Searching!</button></a>
+
+        </div>
+          </div>
+{% endblock %}
+
+
+</section>
+{% block selection_block %}
+  <main id="main">
+
+    <!-- ======= Services Section ======= -->
+    <section id="choice" class="services">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mx-auto" data-aos="fade-up">
+            <a href="{% url 'scanner:show_foodanddrink' %}">
+            <div class="icon-box icon-box-blue">
+              <div class="icon"><i class="bx bx-file"></i></div>
+              <h4 class="title">Food & Drink</h4>
+               <p class="description">Find a taste of home or try something new!</p>
+            </div>
+            </a>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items mx-auto" data-aos="fade-up" data-aos-delay="100">
+            <a href="{% url 'scanner:show_nightlife' %}">
+            <div class="icon-box icon-box-blue">
+              <div class="icon"><i class="bx bx-location-plus"></i></div>
+              <h4 class="title">Nightlife</h4>
+              <p class="description">Late night venues and bars</p>
+            </div>
+              </a>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items mx-auto" data-aos="fade-up" data-aos-delay="100">
+            <a href="{% url 'scanner:show_lifestyle' %}">
+            <div class="icon-box icon-box-blue">
+              <div class="icon"><i class="bx bx-location-plus"></i></div>
+              <h4 class="title">Lifestyle</h4>
+              <p class="description">Museums, Yoga, Markets... Anything!</p>
+            </div>
+              </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+  </main><!-- End #main -->
+
+{% endblock %}
+

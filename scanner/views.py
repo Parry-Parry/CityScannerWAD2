@@ -9,6 +9,8 @@ from django.http import HttpResponse
 # Create your views here.
 def homepage(request):
     return render(request, 'scanner/homepage.html')
+
+
 def search(request):
     return render(request, 'scanner/search.html')
 
@@ -17,14 +19,9 @@ def locationchoice(request):
     return render(request, 'scanner/locationchoice.html')
 
 
-def choose_type(request, culture_name_slug):
+def choose_type(request):
     context_dict = {}
-    try:
-        culture = Culture.objects.get(slug=culture_name_slug)
-        context_dict['culture'] = culture
-    except Culture.DoesNotExist:
-        context_dict['culture'] = None
-    
+    context_dict['culture'] = request.GET['culturebox']
     return render(request, 'scanner/choose_type.html', context=context_dict)
 
 
