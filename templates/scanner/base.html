@@ -12,11 +12,13 @@
     <title>CityScanner {% block title_block %}
 
         {% endblock %}</title>
+    {% block extracss %}
+    {% endblock %}
     <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="{% static 'css/assets/img/favicon.png' %}" rel="icon">
+    <link href="{% static 'css/assets/static/logo.png' %}" rel="icon">
     <link href="{% static 'css/assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -61,7 +63,7 @@
                 {% if user.is_authenticated %}
                 <li><a href="{% url 'scanner:profile' %}">Your Page</a></li>
                 {% else %}
-                <li><a href="{% url 'scanner:login' %}">Log In</a></li>
+                <li><a href="{% url 'scanner:login' %}">Log In | Register</a></li>
                 {% endif %}
 
             </ul>
@@ -117,7 +119,7 @@
 
                 <div class="col-lg-3 col-md-6 footer-info">
                     <h3>Our Project</h3>
-                    <p>We want to make finding interesting things to do in Glasgow effortless for newcomers and Glasweigans alike</p>
+                    <p>We want to make finding interesting things to do in Glasgow effortless for newcomers and Glaswegians alike</p>
                 </div>
 
             </div>
