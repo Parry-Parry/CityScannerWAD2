@@ -5,7 +5,9 @@
 
   <p>Username: {{ user }}</p>
   <p>Email: {{ user.email }}</p>
-  <p><img src="{{ user.userprofile.picture.url  }}" width=240></p>
+  {% if user.picture %}
+    <p><img src="{{ user.userprofile.picture.url  }}" width=240></p>
+  {% endif %}
 
 
 </div>

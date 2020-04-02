@@ -23,9 +23,9 @@ def populate():
     for fadp in foodanddrink_pages:
         add_foodanddrink_page(Culture.objects.get(name=fadp['culture']), fadp['name'], fadp['url'], fadp['desc'], fadp['vegan'], fadp['price'], fadp['street_num'], fadp['post_code'])
     for np in nightlife_pages:
-        add_nightlife_page(Culture.objects.get(name=np['culture']), np['name'], np['url'], np['desc'], np['business'], np['liscenced'], np['price'], np['street_num'], np['post_code'])
+        add_nightlife_page(Culture.objects.get(name=np['culture']), np['name'], np['business'], np['url'], np['desc'], np['liscenced'], np['price'], np['street_num'], np['post_code'])
     for lp in lifestyle_pages:
-        add_lifestyle_page(Culture.objects.get(name=lp['culture']),lp['name'],lp['url'], lp['desc'], lp['business'], lp['price'], lp['street_num'], lp['post_code'])
+        add_lifestyle_page(Culture.objects.get(name=lp['culture']),lp['name'],lp['business'], lp['url'], lp['desc'], lp['price'], lp['street_num'], lp['post_code'])
 
 
 def add_foodanddrink_page(culture, name, url, desc, vegan, price, street_num, post_code):

@@ -11,6 +11,8 @@ from django.http import HttpResponse
 def homepage(request):
 
     return render(request, 'scanner/homepage.html')
+def search(request):
+    return render(request, 'scanner/search.html')
 
 def choose_type(request,culture_name_slug):
     context_dict={}
@@ -19,7 +21,7 @@ def choose_type(request,culture_name_slug):
         context_dict['culture']= culture
     except Culture.DoesNotExist:
         context_dict['culture'] = None
-    print(culture.slug)
+    
     return render(request, 'scanner/choose_type.html', context=context_dict)
 
 def show_nightlife(request,culture_name_slug):
