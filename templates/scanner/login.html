@@ -7,18 +7,13 @@ LogIn
 {% block body_block %}
 <div class="carousel-item active">
   <div class="carousel-container">
- <h2 class="animated fadeInDown">>Login to CityScanner</h2>
-</form>
-<form class="form-inline">
-  <div class="form-group mb-2">
-    <label for="username" class="sr-only">Username | </label>
-    <input type="text" name="username" class="form-control-plaintext" id="username" value="" size="50">
-  </div>
-  <div class="form-group mx-sm-3 mb-2">
-    <label for="password" class="sr-only">Password</label>
-    <input type="password" name="password" class="form-control" id="password" placeholder="Password" size="50">
-  </div>
-  <button type="submit" class="btn btn-outline-light">Log in</button>
-</form>
+ <h2 class="animated fadeInDown">Login to CityScanner</h2>
+     <p class="animated fadeInUp">Username:</p> <input type="text" name="username" class="form-control" id="username" value="" size="50">
+    <hr> <p class="animated fadeInUp">Password:</p>  <input type="password" name="password" class="form-control" id="password" placeholder="Password" size="50">
+    <br>
+    <button type="submit" class="btn btn-outline-light">Log in</button>
+    </form>
+
+    <br><br><br>
 <a href="{% url 'scanner:register' %}"><button type="button" class="btn btn-outline-light">Register Here</button></a>
     {% endblock %}
