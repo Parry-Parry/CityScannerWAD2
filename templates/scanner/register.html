@@ -1,13 +1,36 @@
 <!DOCTYPE html>
-
-<h1>Register for CityScanner</h1>
+{% extends 'scanner/base.html' %}
+{% load static %}
+{% block title_block %}
+Register
+{% endblock %}
+{% block extracss %}
+<style>
+    #regform{
+        text-align: left;
+    }
+</style>
+{% endblock %}
+{% block body_block %}
+<div class="carousel-item active">
+  <div class="carousel-container">
+ <h2 class="animated fadeInDown">Register for CityScanner</h2>
   {% if registered %}
-    Thank you for registering!
+    <p class="animated fadeInUp">Thank you for registering!</p>
   {% else %}
     <form id="user_form" method="post" action="{% url 'scanner:register' %}" enctype="multipart/form-data">
+
+        <div class="form-group">
+            <div class="container" id="regform">
       {% csrf_token %}
       {{ user_form.as_p }}
       {{ profile_form.as_p }}
-      <input type="submit" name="submit" value="Register" />
+                </div>
+      <button type="submit" class="btn btn-outline-light" name="submit" value="Register">Register</button>
+        </div>
     </form>
+
   {% endif %}
+</div>
+</div>
+{% endblock %}
