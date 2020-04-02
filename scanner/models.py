@@ -26,7 +26,7 @@ class FoodAndDrinkPage(models.Model):
     TIME_MAX=2400
     STREET_NUM_MAX_LENGTH =9999
     POSTCODE_MAX_LENGTH =6
-    culture = models.ForeignKey(Culture, on_delete =models.CASCADE, default=Culture.objects.get_or_create(name='None')[0])
+    culture = models.ForeignKey(Culture, on_delete =models.CASCADE, null=True) #default=Culture.objects.get_or_create(name='None')[0])
     name = models.CharField(max_length=NAME_MAX_LENGTH, unique=True)
     url = models.URLField(blank=True)
     short_desc = models.CharField(max_length=SHORT_DESC_MAX_LENGTH)
@@ -45,7 +45,7 @@ class NightlifePage(models.Model):
     TIME_MAX=2400
     STREET_NUM_MAX_LENGTH =9999
     POSTCODE_MAX_LENGTH =6
-    culture = models.ForeignKey(Culture, on_delete =models.CASCADE, default=Culture.objects.get_or_create(name='None')[0])
+    culture = models.ForeignKey(Culture, on_delete =models.CASCADE, null=True)# default=Culture.objects.get_or_create(name='None')[0])
     name = models.CharField(max_length=128, unique=True)
     url = models.URLField(blank=True)
     short_desc = models.CharField(max_length=200, null=True)
@@ -67,7 +67,7 @@ class LifestylePage(models.Model):
     STREET_NUM_MAX_LENGTH =9999
     POSTCODE_MAX_LENGTH =6
 
-    culture = models.ForeignKey(Culture, on_delete= models.CASCADE,default=Culture.objects.get_or_create(name='None')[0])
+    culture = models.ForeignKey(Culture, on_delete= models.CASCADE, null=True)#default=Culture.objects.get_or_create(name='None')[0])
     name = models.CharField(max_length=NAME_MAX_LENGTH, unique=True)
     business = models.CharField(max_length=50, null=True)
     url = models.URLField(blank=True)

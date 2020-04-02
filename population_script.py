@@ -28,7 +28,6 @@ def populate():
         add_lifestyle_page(Culture.objects.get(name=lp['culture']),lp['name'],lp['url'], lp['desc'], lp['business'], lp['price'], lp['street_num'], lp['post_code'])
 
 
-
 def add_foodanddrink_page(culture, name, url, desc, vegan, price, street_num, post_code):
     fadp = FoodAndDrinkPage.objects.get_or_create(name=name)[0]
     fadp.culture=culture
