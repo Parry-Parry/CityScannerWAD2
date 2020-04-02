@@ -1,4 +1,6 @@
 from django.urls import path
+from django.conf.urls.static import static
+from django.conf import settings
 from scanner import views
 
 app_name = 'scanner'
@@ -17,4 +19,4 @@ urlpatterns = [
   path('results/lifestyle/<slug:culture_name_slug>/', views.show_lifestyle, name='show_lifestyle'),
 
 
-]
+]+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

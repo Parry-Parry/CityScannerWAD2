@@ -3,11 +3,23 @@
 {% block title_block %}
 Get Started
 {% endblock %}
-{% block body_block %}
-          <h2 class="animated fadeInDown">Get Started with <span>CityScanner</span></h2>
-          <p class="animated fadeInUp">Scroll down to see what you've been missing in your city</p>
-          <a href="\Search"><button type="button" class="btn btn-outline-light">Or Search Right Now!</button></a>
+
+   {% block body_block %}
+      <div class="carousel-item active">
+          <!--<div id="filterArea" class="container border">
+
+          </div>-->
+        <div class="carousel-container">
+
+                <h2 class="animated fadeInDown">Get Started with <span>CityScanner</span></h2>
+                <p class="animated fadeInUp">Scroll down to see what you've been missing in your city</p>
+                 <a href="\Search"><button type="button" class="btn btn-outline-light">Or Search Right Now!</button></a>
+
+        </div>
 {% endblock %}
+      </div>
+
+</section>
 {% block selection_block %}
   <main id="main">
 
