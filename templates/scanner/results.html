@@ -1,13 +1,50 @@
-<!DOCTYPE>
 
-<h1>Results</h1>
+<!DOCTYPE html>
+{% extends 'scanner/base.html' %}
+{% load static %}
+{% block title_block %}
+Locations
+{% endblock %}
+{% block extracss %}
+<style>
+    #filterArea{
+    text-align: left;
+        z-index:1;
+        position: fixed;
+    }
+    </style>
+{% endblock %}
 
-{% if culture %}
-  {% if pages %}
-  <ul>
-    {% for page in pages %}
-      <li><a href="{{ page.url }}">{{ page.name }}</a>
+{% block sidebar_block %}
+     <div id= "filterArea" class= "container border-light ml-5">
+         <div class="btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary active btn-outline-light">
+                <input id='FILTERS IN PROGRESS' type="checkbox"> FILTERS IN PROGRESS
+            </label>
+        </div>
+        </div>
+
+{% endblock %}
+    {% block body_block %}
+      <div class="carousel-item active">
+
+        <div class="carousel-container">
+                {% if culture %}
+                {% if pages %}
+        <ul class="form">
+             {% for page in pages %}
+                        <div class="container border-light">
+             <li class="animated fadeInDown"><a href="{{ page.url }}"><h4>{{ page.name }}</h4></a></li>
+            <li class="animated fadeInUp"><p>{{ page.short_desc }}</h2></li>
+                            </div>
     {% endfor %}
-  </ul>
-  {% endif %}
-{% endif %}
+    </ul>
+        {% endif %}
+        {% endif %}
+
+          </div>
+          </div>
+        </div>
+{% endblock %}
+
+
