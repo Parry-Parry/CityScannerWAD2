@@ -1,6 +1,6 @@
 # CityScannerWAD2
 Group Project
-
+Pre-requisite: anaconda installed
 
 From the main project directory run the following commands :
 
