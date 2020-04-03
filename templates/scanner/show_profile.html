@@ -1,19 +1,72 @@
 <!DOCTYPE html>
+{% extends 'scanner/base.html' %}
+{% load static %}
+{% block title_block %}
+{{user}} 's Page
+{% endblock %}
 
-<h1>Profile</h1>
-<div>
+   {% block body_block %}
+      <div class="carousel-item active">
+          <!--<div id="filterArea" class="container border">
 
-  <p>Username: {{ user }}</p>
-  <p>Email: {{ user.email }}</p>
-  {% if user.picture %}
-    <p><img src="{{ user.userprofile.picture.url  }}" width=240></p>
-  {% endif %}
+          </div>-->
+        <div class="carousel-container">
 
+                <h2 class="animated fadeInDown">View your details or scroll down to add a location</h2>
+                <p class="animated fadeInUp">Username: {{ user }}</p>
+                 <p class="animated fadeInUp">Email: {{ user.email }}</p>
+          <a href="#main"><button type="button" class="btn btn-outline-light">Search</button></a>
 
-</div>
-<div>
-  <a href="{% url  'scanner:add_lifestyle_page' %}">Add Lifstyle Page</a>
-  <a href="{% url  'scanner:add_nightlife_page' %}">Add Nightlife Page</a>
-  <a href="{% url  'scanner:add_foodanddrink_page' %}">Add Food and Drink Page</a>
+        </div>
+          </div>
+{% endblock %}
+{% block selection_block %}
+  <main id="main">
+    <br>
+    <br>
+    <br>
+    <!-- ======= Services Section ======= -->
+    <section id="choice" class="services">
+      <div class="container">
 
-</div>
+        <div class="row">
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mx-auto" data-aos="fade-up">
+            <a href="{% url 'scanner:add_foodanddrink_page' %}">
+            <div class="icon-box icon-box-blue">
+              <div class="icon"><i class="bx bx-file"></i></div>
+              <h4 class="title">Food & Drink</h4>
+               <p class="description">Find a taste of home or try something new!</p>
+            </div>
+            </a>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items mx-auto" data-aos="fade-up" data-aos-delay="100">
+            <a href="{% url 'scanner:add_nightlife_page' %}">
+            <div class="icon-box icon-box-blue">
+              <div class="icon"><i class="bx bx-location-plus"></i></div>
+              <h4 class="title">Nightlife</h4>
+              <p class="description">Late night venues and bars</p>
+            </div>
+              </a>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items mx-auto" data-aos="fade-up" data-aos-delay="100">
+            <a href="{% url 'scanner:add_lifestyle_page' %}">
+            <div class="icon-box icon-box-blue">
+              <div class="icon"><i class="bx bx-location-plus"></i></div>
+              <h4 class="title">Lifestyle</h4>
+              <p class="description">Museums, Yoga, Markets... Anything!</p>
+            </div>
+              </a>
+          </div>
+
+        </div>
+        <br>
+        <br>
+
+      </div>
+    </section><!-- End Services Section -->
+
+  </main><!-- End #main -->
+
+{% endblock %}

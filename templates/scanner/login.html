@@ -7,11 +7,14 @@ LogIn
 {% block body_block %}
 <div class="carousel-item active">
   <div class="carousel-container">
- <h2 class="animated fadeInDown">Login to CityScanner</h2>
-     <p class="animated fadeInUp">Username:</p> <input type="text" name="username" class="form-control" id="username" value="" size="50">
-    <hr> <p class="animated fadeInUp">Password:</p>  <input type="password" name="password" class="form-control" id="password" placeholder="Password" size="50">
-    <br>
-    <button type="submit" class="btn btn-outline-light">Log in</button>
+      <form id="user_login" method="post">
+          <h2 class="animated fadeInDown">Login to CityScanner</h2>
+           <div id="form-group">
+               {% csrf_token %}
+            <p class="animated fadeInUp">Username:</p> <input type="text" name="username" class="form-control" id="username" value="" size="50">
+    <hr>    <p class="animated fadeInUp">Password:</p>  <input type="password" name="password" class="form-control" id="password" placeholder="Password" size="50">
+    <br>    </div>
+        <button type="submit" class="btn btn-outline-light" name="submit" value="login">Log in</button>
     </form>
 
     <br><br><br>
