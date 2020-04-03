@@ -4,13 +4,20 @@ Group Project
 
 From the main project directory run the following commands :
 
-`conda create -n scanner python=3.7.2`\n
+`conda create -n scanner python=3.7.2`
+
 `conda activate scanner`
+
 `pip install django==2.2.3`
+
 `pip install pillow`
+
 `python manage.py makemigrations scanner`
+
 `python manage.py migrate`
+
 `python population_script.py`
+
 `python manage.py runserver`
 
 ------------------------------
