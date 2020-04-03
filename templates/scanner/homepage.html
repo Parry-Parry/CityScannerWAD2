@@ -44,16 +44,28 @@ Get Started
               </form>
             </div>
           </div>
+<!---------
+<div class="col-md-6 col-lg-3 d-flex align-items mx-auto" data-aos="fade-up" data-aos-delay="100">
+  <a href="{% url 'scanner:add_nightlife_page' %}">
+  <div class="icon-box icon-box-blue">
+    <div class="icon"><i class="bx bx-location-plus"></i></div>
+    <h4 class="title">Nightlife</h4>
+    <p class="description">Late night venues and bars</p>
+  </div>
+    </a>
+</div>
+---------->
 
           <div class="col-md-6 col-lg-3 d-flex align-items mx-auto" data-aos="fade-up" data-aos-delay="100">
+            <a href="{% url 'scanner:locationchoice' %}">
             <div class="icon-box icon-box-blue">
               <div class="icon"><i class="bx bx-location-plus"></i></div>
-              <h4 class="title"><a href="{% url 'scanner:locationchoice' %}">Add a new Location</a></h4>
+              <h4 class="title">Add a new Location</h4>
               <p class="description">You must be signed in to do this</p>
               <a href="{% url 'scanner:register' %}"><button type="button" class="btn btn-outline-dark">Register</button></a>
             </div>
           </div>
-
+          </a>
         </div>
 
       </div>
