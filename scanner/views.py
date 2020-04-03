@@ -18,6 +18,10 @@ def homepage(request):
 
 
 def search(request):
+    if request.method == 'POST':
+        search = request.POST.get('culture')
+        slug_search = slugify(search)
+        return redirect(reverse('scanner:choose_type', args=[slug_search]))
     return render(request, 'scanner/searchseperate.html')
 
 
