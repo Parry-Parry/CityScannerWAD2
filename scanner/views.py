@@ -9,18 +9,20 @@ from django.template.defaultfilters import slugify
 
 # Create your views here.
 def homepage(request):
-    if request.method=='POST':
+    if request.method == 'POST':
         search = request.POST.get('culturebox')
         slug_search = slugify(search)
         return redirect(reverse('scanner:choose_type', args=[slug_search]))
 
     return render(request, 'scanner/homepage.html')
+
+
 def search(request):
-    return render(request, 'scanner/search.html')
+    return render(request, 'scanner/searchseperate.html')
 
 
 def locationchoice(request):
-    if request.method=='POST':
+    if request.method == 'POST':
         search = request.POST.get('culture_search')
         slug_search = slugify(search)
         return redirect(reverse('scanner:choose_type', args=[slug_search]))

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% extends 'scanner/base.html' %}
+{% load static %}
+{% block title_block %}
+Search by culture
+{% endblock %}
+
+   {% block body_block %}
+      <div class="carousel-item active">
+          <!--<div id="filterArea" class="container border">
+
+          </div>-->
+        <div class="carousel-container">
+            <form class="form" method='post' action="{% url 'home' %}">
+                <h2 class="animated fadeInDown mr-2">Type in a nationality!</h2>
+                <div class="form-group form-inline mb-2">
+
+                <input type="text" name="culture" class="form-control animated fadeInDown mr-2" id="culture" value="" size="50">
+                 <a href="{% url 'scanner:search' %}"><button type="submit" class="btn btn-outline-light">Search</button></a>
+                </div>
+            </form>
+        </div>
+          </div>
+{% endblock %}

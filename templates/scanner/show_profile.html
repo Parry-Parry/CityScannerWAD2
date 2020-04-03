@@ -15,9 +15,12 @@
                 <h2 class="animated fadeInDown">View your details or scroll down to add a location</h2>
                 <p class="animated fadeInUp">Username: {{ user }}</p>
                  <p class="animated fadeInUp">Email: {{ user.email }}</p>
-          <a href="#main"><button type="button" class="btn btn-outline-light">Search</button></a>
-
-        </div>
+          <div class="align-items-baseline">
+          <a href="{% url 'scanner:search' %}"><button type="button" class="btn btn-outline-light">Search</button></a>
+          <a href="#main"><button type="button" class="btn btn-outline-light">Add location</button></a>
+          <a href="{% url 'scanner:logout' %}"><button type="button" class="btn btn-outline-danger">Logout</button></a>
+          </div>
+          </div>
           </div>
 {% endblock %}
 {% block selection_block %}
