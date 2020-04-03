@@ -1,14 +1,44 @@
 <!DOCTYPE html>
+{% extends 'scanner/base.html' %}
+{% load static %}
+{% block title_block %}
+Add Location
+{% endblock %}
+{% block extracss %}
+<style>
+    #regform{
+        text-align: left;
+    }
+    .field{
+      color: white;
+    }
+</style>
+{% endblock %}
+{% block body_block %}
+<div class="carousel-item active">
+  <div class="carousel-container">
+ <h2 class="animated fadeInDown">Add a Location</h2>
+    <form <form id="NightlifePageForm" method="post" action="{% url 'home' %}" enctype="multipart/form-data">
 
-<div>
-  <form id="NightlifePageForm" method="post" action="{% url 'home' %}">
-    {% csrf_token %}
-    {% for field in form %}
-      {{ field.error }}
-      {{ field.help_text }}
-      {{ field }}
+        <div id="regform" class="form-group form animated fadeInUp">
+            <div class="container">
+
+              {% csrf_token %}
+              {% for field in form %}
+              <div class="field mt-2">
+              {{ field.error }}
+              {{ field.help_text }}
+              {{ field }}
+                </div>
+              {% endfor %}
       <br/>
-    {% endfor %}
-    <input type="submit" name = "submit" value="Create Location" />
-  </form>
+
+            </div>
+          </div>
+            <button type="submit" class="btn btn-outline-light mt-3" name="submit" value="Create Location">Create Location</button>
+
+    </form>
+
 </div>
+</div>
+{% endblock %}

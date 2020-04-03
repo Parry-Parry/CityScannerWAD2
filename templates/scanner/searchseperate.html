@@ -13,7 +13,7 @@ Search by culture
         <div class="carousel-container">
             <form class="form" method='post' action="{% url 'scanner:search' %}">
               {% csrf_token %}
-                <h2 class="animated fadeInDown mr-2">Type in a nationality!</h2>
+                <h2 class="animated fadeInDown mr-2">Choose a nationality!</h2>
                 <div class="form-group form-inline mb-2">
 
                 <input type="text" name="culture" class="form-control animated fadeInDown mr-2" id="culture" value="" size="50">
