@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+{% extends 'scanner/base.html' %}
+{% load static %}
+{% block title_block %}
+Choose Location Type
+{% endblock %}
+   {% block body_block %}
+      <div class="carousel-item active">
+          <!--<div id="filterArea" class="container border">
+
+          </div>-->
+        <div class="carousel-container">
+                <h2 class="animated fadeInDown">Culuture could not be found</h2>
+                <p class="animated fadeInUp">Unfortunately we couldn't find this nationality</p>
+                 <a href="{% url 'scanner:search' %}"><button type="button" class="btn btn-outline-light">Try another?</button></a>
+
+        </div>
+          </div>
+    {% endblock %}

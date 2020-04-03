@@ -20,15 +20,19 @@ def homepage(request):
 
     return render(request, 'scanner/homepage.html', context=context_dict)
 
+def no_page(request):
+    return render(request, 'scanner/no_page.html')
 
 def search(request):
     context_dict = {}
     context_dict['cultures'] = [Culture.objects.all()]
     if request.method == 'POST':
-        search = request.POST.get('culture')
-        slug_search = slugify(search)
-        return redirect(reverse('scanner:choose_type', args=[slug_search]))
-
+        try:
+            search = request.POST.get('culture')
+            slug_search = slugify(search)
+            return redirect(reverse('scanner:choose_type', args=[slug_search]))
+        except Culture.DoesNotExist:
+                return redirect(reverse('scanner:no_page'))
     return render(request, 'scanner/searchseperate.html', context=context_dict)
 
 
@@ -47,7 +51,7 @@ def choose_type(request, culture_name_slug):
         culture = Culture.objects.get(slug=culture_name_slug)
         context_dict['culture'] = culture
     except Culture.DoesNotExist:
-        context_dict['culture'] = None
+        return redirect(reverse('scanner:no_page'))
 
     return render(request, 'scanner/choose_type.html', context=context_dict)
 
