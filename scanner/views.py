@@ -1,3 +1,4 @@
+from django import forms
 from django.shortcuts import render, reverse, redirect
 from scanner.forms import NightlifePageForm, LifestylePageForm, FoodAndDrinkPageForm, UserForm, UserProfileForm
 from scanner.models import NightlifePage, LifestylePage, FoodAndDrinkPage, UserProfile, Culture
@@ -9,20 +10,24 @@ from django.template.defaultfilters import slugify
 
 # Create your views here.
 def homepage(request):
+    context_dict = {}
+    context_dict[culture] = [Culture.objects.get()]
     if request.method == 'POST':
         search = request.POST.get('culturebox')
         slug_search = slugify(search)
         return redirect(reverse('scanner:choose_type', args=[slug_search]))
 
-    return render(request, 'scanner/homepage.html')
+    return render(request, 'scanner/homepage.html', context=context_dict)
 
 
 def search(request):
+    context_dict = {}
+    context_dict[culture] = [Culture.objects.get()]
     if request.method == 'POST':
         search = request.POST.get('culture')
         slug_search = slugify(search)
         return redirect(reverse('scanner:choose_type', args=[slug_search]))
-    return render(request, 'scanner/searchseperate.html')
+    return render(request, 'scanner/searchseperate.html', context=context_dict)
 
 
 def locationchoice(request):
