@@ -11,8 +11,9 @@ from django.template.defaultfilters import slugify
 # Create your views here.
 def homepage(request):
     context_dict = {}
-    context_dict[culture] = [Culture.objects.get()]
-    if request.method == 'POST':
+    context_dict['cultures'] = [Culture.objects.all()]
+    if request.method=='POST':
+
         search = request.POST.get('culturebox')
         slug_search = slugify(search)
         return redirect(reverse('scanner:choose_type', args=[slug_search]))
@@ -22,16 +23,17 @@ def homepage(request):
 
 def search(request):
     context_dict = {}
-    context_dict[culture] = [Culture.objects.get()]
+    context_dict['cultures'] = [Culture.objects.all()]
     if request.method == 'POST':
         search = request.POST.get('culture')
         slug_search = slugify(search)
         return redirect(reverse('scanner:choose_type', args=[slug_search]))
+
     return render(request, 'scanner/searchseperate.html', context=context_dict)
 
 
 def locationchoice(request):
-    if request.method == 'POST':
+    if request.method=='POST':
         search = request.POST.get('culture_search')
         slug_search = slugify(search)
         return redirect(reverse('scanner:choose_type', args=[slug_search]))
